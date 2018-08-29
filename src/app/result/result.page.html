@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title color='primary'>
+      Kritical Reviewer
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-text color="secondary"><h1 id="rating">4.2</h1></ion-text>
+      </ion-row>
+      <ion-row justify-content-center>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+     </ion-row>
+     <ion-row justify-content-center>
+        <ion-text><h3> Customize Rating:</h3></ion-text>
+     </ion-row>
+    </ion-grid>
+    <ion-grid>
+    <ion-row>
+        <ion-col size="12">
+            <h6 ion-text color="secondary">Price</h6>
+            <ion-range pin="true" value="10" id="price" (ionChange)="updateRating(value)"></ion-range>
+        </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+        <ion-col size="12">
+            <h6 ion-text color="secondary">Pizza</h6>
+            <ion-range pin="true" value="10" id="pizza"></ion-range>
+        </ion-col>
+     </ion-row>
+     <ion-row justify-content-center>
+        <ion-col size="12">
+            <h6 ion-text color="secondary">Waiting Time</h6>
+            <ion-range pin="true" value="10" id="waiting"></ion-range>
+        </ion-col>
+     </ion-row>
+     <ion-row justify-content-center>
+        <ion-col size="12">
+            <h6 ion-text color="secondary">Service</h6>
+            <ion-range pin="true" value="10" id="service"></ion-range>
+        </ion-col>
+     </ion-row>
+     <ion-row justify-content-center>
+        <ion-col size="12">
+            <h6 ion-text color="secondary">Ambiance</h6>
+            <ion-range pin="true" value="10" id="ambiance"></ion-range>
+        </ion-col>
+     </ion-row>
+    </ion-grid>
+</ion-content>
+<script type="javascript">
+    function updateRating(){
+
+};
+</script>

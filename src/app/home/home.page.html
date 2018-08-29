@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title color='primary'>
+      Kritical Reviewer
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+      <ion-row justify-content-center>
+        Copy-Paste the URL of the review page to get detailed sentiment analysis.
+      </ion-row>
+
+      <ion-row justify-content-center>
+        <form action="result">
+          <ion-list inset>
+            <ion-item>
+              <ion-label position="stacked">Provide URL:</ion-label>
+              <ion-textarea name="url" value=""></ion-textarea>
+            </ion-item>
+          </ion-list>
+          <div padding>
+              <ion-button shape="round" color="primary" expand="full" href="/result">
+                Analyze Now
+              </ion-button>
+          </div>
+        </form>
+    </ion-row>
+    <ion-row justify-content-center>
+      <p padding>You can also choose 'share' option from the review page and choose to share using Kritical app.</p>
+    </ion-row>
+  </ion-grid>
+</ion-content>
