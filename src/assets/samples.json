@@ -2,19 +2,19 @@
     {
         "id" : 1,
         "title" : "Sample 1",
-        "note" : "Restaurent",
+        "note" : "Restaurant",
         "icon" : "pizza",
         "url" : "http://example.com/1",
-        "industry" : "Restaurent",
+        "industry" : "Restaurant",
         "analysis" : {
             "count" : 5,
             "rating" : 4.2,
             "result" : [
-                { "label" : "pizza", "value" : 4.0 },
-                { "label" : "price", "value" : 3.0 },
-                { "label" : "waiting time", "value" : 2.0 },
-                { "label" : "service", "value" : 4.5 },
-                { "label" : "ambiance", "value" : 4.5 }
+                { "label" : "Pizza", "value" : 4.0, "weight" : 10 },
+                { "label" : "Price", "value" : 3.0, "weight" : 10 },
+                { "label" : "Waiting Time", "value" : 2.0, "weight" : 10 },
+                { "label" : "Service", "value" : 4.5, "weight" : 10 },
+                { "label" : "Ambiance", "value" : 4.5, "weight" : 10 }
             ]
         }
     }

@@ -25,14 +25,12 @@ export class HomePage {
     loadSampleData() {
         try {
             this.http.get('assets/samples.json')
-                     .subscribe(data => {
+                     .subscribe((data) => {
                         console.log("Data ", data);
-                        data.forEach(sample =>
-                              {
-                                console.log("Loading Sample ", sample);
-                                this.storage.set(sample.url, sample);
-                               }
-                            );
+                        for(var k in data){
+                            console.log("Loading Sample ", data[k]);
+                            this.storage.set(data[k].url, data[k]);
+                        }
                       });
         }
         catch(err) {
@@ -41,8 +39,8 @@ export class HomePage {
   }
 
   submit() {
-    console.log("submitted");
-    console.log(this.url);
+    console.log("Registering request for: " + this.url);
+    //Todo: Integrate API to register new url for crawling.
     this.router.navigateByUrl('result?url=' + this.url);
   }
 }
