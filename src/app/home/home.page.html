@@ -20,11 +20,11 @@
           <ion-list inset>
             <ion-item>
               <ion-label position="stacked">Provide URL:</ion-label>
-              <ion-textarea name="url" value=""></ion-textarea>
+              <ion-textarea name="url" value="" [(ngModel)]="url"></ion-textarea>
             </ion-item>
           </ion-list>
           <div padding>
-              <ion-button shape="round" color="primary" expand="full" href="/result">
+              <ion-button shape="round" color="primary" expand="full" (click)="submit()">
                 Analyze Now
               </ion-button>
           </div>

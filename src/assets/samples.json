@@ -1,0 +1,21 @@
+[
+    {
+        "id" : 1,
+        "title" : "Sample 1",
+        "note" : "Restaurent",
+        "icon" : "pizza",
+        "url" : "http://example.com/1",
+        "industry" : "Restaurent",
+        "analysis" : {
+            "count" : 5,
+            "rating" : 4.2,
+            "result" : [
+                { "label" : "pizza", "value" : 4.0 },
+                { "label" : "price", "value" : 3.0 },
+                { "label" : "waiting time", "value" : 2.0 },
+                { "label" : "service", "value" : 4.5 },
+                { "label" : "ambiance", "value" : 4.5 }
+            ]
+        }
+    }
+]
