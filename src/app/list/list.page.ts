@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-list',
@@ -7,27 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  public items: Array<{ title: string; note: string; icon: string, url: string }> = [];
+
+  constructor(
+      private storage: Storage,
+      private router: Router
+    ) {
+    this.storage.forEach((data, key, index) => {
+          this.items.push({
+            title: data.title,
+            note: data.note,
+            icon: data.icon,
+            url: data.url
+          });
+    });
   }
 
   ngOnInit() {
@@ -36,4 +32,8 @@ export class ListPage implements OnInit {
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
+
+  navToResult(url) {
+    this.router.navigateByUrl('result?url=' + url);
+  }
 }

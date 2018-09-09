@@ -77,6 +77,19 @@ export class ResultPage implements OnInit {
     return Array(Math.floor(rating));
   }
 
+  numHalfStar(rating) {
+    if(rating % 1 >= 0.5) {
+        return Array(1);
+    }
+    else {
+        return Array(0);
+    }
+  }
+
+  numStarOutline(rating) {
+    return Array(Math.ceil(4.5 - rating));
+  }
+
   save() {
     this.storage.set(this.resultData.url, this.resultData);
     this.raiseToast('Saved the customized rating.')

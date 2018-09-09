@@ -8,13 +8,89 @@
         "industry" : "Restaurant",
         "analysis" : {
             "count" : 5,
-            "rating" : 4.2,
+            "rating" : 3.8,
             "result" : [
                 { "label" : "Pizza", "value" : 4.0, "weight" : 10 },
                 { "label" : "Price", "value" : 3.0, "weight" : 10 },
                 { "label" : "Waiting Time", "value" : 2.0, "weight" : 10 },
                 { "label" : "Service", "value" : 4.5, "weight" : 10 },
                 { "label" : "Ambiance", "value" : 4.5, "weight" : 10 }
+            ]
+        }
+    },
+    {
+        "id" : 2,
+        "title" : "Sample 2",
+        "note" : "Restaurant",
+        "icon" : "restaurant",
+        "url" : "http://example.com/2",
+        "industry" : "Restaurant",
+        "analysis" : {
+            "count" : 5,
+            "rating" : 3.2,
+            "result" : [
+                { "label" : "Dosa", "value" : 4.0, "weight" : 10 },
+                { "label" : "Price", "value" : 5.0, "weight" : 10 },
+                { "label" : "Delivery", "value" : 4.0, "weight" : 10 },
+                { "label" : "Service", "value" : 4.5, "weight" : 10 },
+                { "label" : "Ambiance", "value" : 3.0, "weight" : 10 }
+            ]
+        }
+    },
+    {
+        "id" : 3,
+        "title" : "Sample 3",
+        "note" : "Smart Phone",
+        "icon" : "phone-portrait",
+        "url" : "http://example.com/3",
+        "industry" : "Electronics",
+        "analysis" : {
+            "count" : 5,
+            "rating" : 4.2,
+            "result" : [
+                { "label" : "Battery", "value" : 4.0, "weight" : 10 },
+                { "label" : "Price", "value" : 5.0, "weight" : 10 },
+                { "label" : "Camera", "value" : 3.0, "weight" : 10 },
+                { "label" : "Build", "value" : 4.5, "weight" : 10 },
+                { "label" : "RAM", "value" : 3.0, "weight" : 10 }
+            ]
+        }
+    },
+    {
+        "id" : 4,
+        "title" : "Sample 4",
+        "note" : "Shirt",
+        "icon" : "shirt",
+        "url" : "http://example.com/4",
+        "industry" : "Clothing",
+        "analysis" : {
+            "count" : 5,
+            "rating" : 3.9,
+            "result" : [
+                { "label" : "Material", "value" : 4.0, "weight" : 10 },
+                { "label" : "Price", "value" : 5.0, "weight" : 10 },
+                { "label" : "Comfort", "value" : 3.0, "weight" : 10 },
+                { "label" : "Style", "value" : 4.5, "weight" : 10 },
+                { "label" : "Formal", "value" : 3.0, "weight" : 10 }
+            ]
+        }
+    },
+    {
+        "id" : 5,
+        "title" : "Sample 5",
+        "note" : "Airline",
+        "icon" : "jet",
+        "url" : "http://example.com/5",
+        "industry" : "Aviation",
+        "analysis" : {
+            "count" : 5,
+            "rating" : 4.3,
+            "result" : [
+                { "label" : "Punctual", "value" : 4.0, "weight" : 10 },
+                { "label" : "Price", "value" : 5.0, "weight" : 10 },
+                { "label" : "Comfort", "value" : 3.0, "weight" : 10 },
+                { "label" : "Food", "value" : 4.5, "weight" : 10 },
+                { "label" : "Leg room", "value" : 3.0, "weight" : 10 }
             ]
         }
     }

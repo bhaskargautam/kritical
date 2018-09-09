@@ -16,7 +16,8 @@
     <ion-card-title>{{resultData.title}}</ion-card-title>
     <ion-icon [name]="resultData.icon" slot="start"></ion-icon>
     <span>{{resultData.note}}</span>
-    <ion-grid>
+    <div>Source Rating: {{resultData.analysis.rating}}</div>
+    <ion-grid padding>
       <ion-row justify-content-center>
         <ion-text color="secondary"><h2>My Kritical Rating:</h2></ion-text>
       </ion-row>
@@ -27,6 +28,12 @@
         <ion-item *ngFor="let i of numStars(resultData.kriticalRating)">
             <ion-icon name="star"></ion-icon>
         </ion-item>
+        <ion-item *ngFor="let i of numHalfStar(resultData.kriticalRating)">
+            <ion-icon name="star-half"></ion-icon>
+        </ion-item>
+        <ion-item *ngFor="let i of numStarOutline(resultData.kriticalRating)">
+            <ion-icon name="star-outline"></ion-icon>
+        </ion-item>
      </ion-row>
     </ion-grid>
     <ion-list lines="full">
@@ -35,12 +42,18 @@
             <ion-item *ngFor="let i of numStars(x.value)" text-right>
                 <ion-icon name="star"></ion-icon>
             </ion-item>
+                <ion-item *ngFor="let i of numHalfStar(x.value)">
+                <ion-icon name="star-half"></ion-icon>
+            </ion-item>
+            <ion-item *ngFor="let i of numStarOutline(x.value)">
+                <ion-icon name="star-outline"></ion-icon>
+            </ion-item>
         </ion-item>
     </ion-list>
   </ion-card-content>
 </ion-card>
 
-<ion-card>
+<ion-card padding>
   <ion-card-content text-center>
     <ion-card-title>Customize Rating:</ion-card-title>
     <ion-list lines="full">
