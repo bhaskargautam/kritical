@@ -12,14 +12,16 @@ import { ToastController } from '@ionic/angular';
 })
 export class ResultPage implements OnInit {
   private url: any;
-  private resultData: any;
+  public resultData: any;
   private defaultResult: any;
+  private resultAvailable: any;
 
   constructor(
         private storage: Storage,
         private activatedRoute: ActivatedRoute,
         public toastCtrl: ToastController
     ) {
+    this.resultAvailable = false;
     this.storage.get('http://example.com/1').then((data) => {
             this.defaultResult = data;
         });
@@ -28,15 +30,18 @@ export class ResultPage implements OnInit {
             console.log("Loading results for ", params['url']);
             this.storage.get(params['url']).then((data) => {
                 console.log(data);
-                if(data) {
+                if(data && data['analysis']) {
+                    console.log("Valid Data avaialble" + data);
                     this.resultData = data;
+                    this.resultAvailable = true;
+                    this.computeRating();
                 }
                 else {
-                    this.raiseToast('Results are not available for the provided URL. Showing Sample-1 result.');
-                    this.resultData = this.defaultResult;
+                    //console.log("Loading Sample Result");
+                    //this.raiseToast('Results are not available for the provided URL. Showing Sample-1 result.');
+                    this.resultData = this.getCrawlResult(params['url']);
                 }
                 console.log("Loaded Data", this.resultData);
-                this.computeRating();
             });
         });
   }
@@ -93,5 +98,12 @@ export class ResultPage implements OnInit {
   save() {
     this.storage.set(this.resultData.url, this.resultData);
     this.raiseToast('Saved the customized rating.')
+  }
+
+  getCrawlResult(url) {
+    //Todo: call status & getObject APIs.
+    console.log("Fetching results from Crawler.");
+    this.resultAvailable = false;
+    return {"url" : url};
   }
 }

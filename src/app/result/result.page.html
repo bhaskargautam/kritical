@@ -11,63 +11,69 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-  <ion-card-content text-center>
-    <ion-card-title>{{resultData.title}}</ion-card-title>
-    <ion-icon [name]="resultData.icon" slot="start"></ion-icon>
-    <span>{{resultData.note}}</span>
-    <div>Source Rating: {{resultData.analysis.rating}}</div>
-    <ion-grid padding>
-      <ion-row justify-content-center>
-        <ion-text color="secondary"><h2>My Kritical Rating:</h2></ion-text>
-      </ion-row>
-      <ion-row justify-content-center>
-        <ion-text color="secondary"><h1 id="rating">{{resultData.kriticalRating}}</h1></ion-text>
-      </ion-row>
-      <ion-row justify-content-center>
-        <ion-item *ngFor="let i of numStars(resultData.kriticalRating)">
-            <ion-icon name="star"></ion-icon>
-        </ion-item>
-        <ion-item *ngFor="let i of numHalfStar(resultData.kriticalRating)">
-            <ion-icon name="star-half"></ion-icon>
-        </ion-item>
-        <ion-item *ngFor="let i of numStarOutline(resultData.kriticalRating)">
-            <ion-icon name="star-outline"></ion-icon>
-        </ion-item>
-     </ion-row>
-    </ion-grid>
-    <ion-list lines="full">
-        <ion-item *ngFor="let x of resultData.analysis.result">
-            <ion-label text-left>{{x.label}}</ion-label>
-            <ion-item *ngFor="let i of numStars(x.value)" text-right>
+    <ion-card padding *ngIf="resultAvailable">
+      <ion-card-content text-center>
+        <ion-card-title>{{resultData.title}}</ion-card-title>
+        <ion-icon [name]="resultData.icon" slot="start"></ion-icon>
+        <span>{{resultData.note}}</span>
+        <div>Source Rating: {{resultData.analysis.rating}}</div>
+        <ion-grid padding>
+          <ion-row justify-content-center>
+            <ion-text color="secondary"><h2>My Kritical Rating:</h2></ion-text>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-text color="secondary"><h1 id="rating">{{resultData.kriticalRating}}</h1></ion-text>
+          </ion-row>
+          <ion-row justify-content-center>
+            <ion-item *ngFor="let i of numStars(resultData.kriticalRating)">
                 <ion-icon name="star"></ion-icon>
             </ion-item>
-                <ion-item *ngFor="let i of numHalfStar(x.value)">
+            <ion-item *ngFor="let i of numHalfStar(resultData.kriticalRating)">
                 <ion-icon name="star-half"></ion-icon>
             </ion-item>
-            <ion-item *ngFor="let i of numStarOutline(x.value)">
+            <ion-item *ngFor="let i of numStarOutline(resultData.kriticalRating)">
                 <ion-icon name="star-outline"></ion-icon>
             </ion-item>
-        </ion-item>
-    </ion-list>
-  </ion-card-content>
-</ion-card>
+         </ion-row>
+        </ion-grid>
+        <ion-list lines="full">
+            <ion-item *ngFor="let x of resultData.analysis.result">
+                <ion-label text-wrap>{{x.label}}</ion-label>
+                <ion-item *ngFor="let i of numStars(x.value)" no-padding>
+                    <ion-icon name="star"></ion-icon>
+                </ion-item>
+                <ion-item *ngFor="let i of numHalfStar(x.value)" no-padding>
+                    <ion-icon name="star-half"></ion-icon>
+                </ion-item>
+                <ion-item *ngFor="let i of numStarOutline(x.value)" no-padding>
+                    <ion-icon name="star-outline"></ion-icon>
+                </ion-item>
+            </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
 
-<ion-card padding>
-  <ion-card-content text-center>
-    <ion-card-title>Customize Rating:</ion-card-title>
-    <ion-list lines="full">
-        <ion-item *ngFor="let x of resultData.analysis.result">
-            <ion-label text-left>{{x.label}}</ion-label>
-            <ion-range pin="true" value="{{x.weight}}" (ionChange)="updateRating($event, x.label)"></ion-range>
-        </ion-item>
-    </ion-list>
-    <div padding>
-          <ion-button shape="round" color="primary" expand="full" (click)="save()">
-            Save Customization
-          </ion-button>
-      </div>
-    </ion-card-content>
-</ion-card>
+    <ion-card padding *ngIf="resultAvailable">
+      <ion-card-content text-center>
+        <ion-card-title>Customize Rating:</ion-card-title>
+        <ion-list lines="full">
+            <ion-item *ngFor="let x of resultData.analysis.result" no-padding>
+                <ion-label slot="start" no-padding>{{x.label}}</ion-label>
+                <ion-range pin="true" value="{{x.weight}}" (ionChange)="updateRating($event, x.label)">
+                </ion-range>
+            </ion-item>
+        </ion-list>
+        <div padding>
+              <ion-button shape="round" color="primary" expand="full" (click)="save()">
+                Save Customization
+              </ion-button>
+          </div>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card padding *ngIf="!resultAvailable">
+      <ion-card-content text-center>
+        <ion-card-title>Result Pending for URL: {{resultData.url}}. Please try again later by selecting the url from history menu.</ion-card-title>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
-
